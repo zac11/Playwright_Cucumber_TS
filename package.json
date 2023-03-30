@@ -1,0 +1,27 @@
+{
+  "name": "playwright_cucumber_ts",
+  "version": "1.0.0",
+  "description": "Playwright Cucumber TS Repo course by Letcode",
+  "main": "index.js",
+  "scripts": {
+    "test": "cucumber-js test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zac11/Playwright_Cucumber_TS.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zac11/Playwright_Cucumber_TS/issues"
+  },
+  "homepage": "https://github.com/zac11/Playwright_Cucumber_TS#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.32.1",
+    "ts-node": "^10.9.1"
+  },
+  "dependencies": {
+    "@cucumber/cucumber": "^9.1.0"
+  }
+}
