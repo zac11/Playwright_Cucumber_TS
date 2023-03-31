@@ -1,37 +1,44 @@
-import { Given, When, Then } from "@cucumber/cucumber";
-import {chromium, Page, Browser} from "@playwright/test";
+import { Given, When, Then, setDefaultTimeout } from "@cucumber/cucumber";
+import {expect} from "@playwright/test";
+import { pageFixture } from "../../hooks/pageFixture";
 
-let browser: Browser;
-let page: Page;
+setDefaultTimeout(60*1000*2);
+
 Given('user navigates to the application', async function () {
-  browser = await chromium.launch({
-      headless: false,
-
-  });
-  page = await browser.newPage();
-  await page.goto("https://bookcart.azurewebsites.net/");
+  await pageFixture.page.goto("https://bookcart.azurewebsites.net/");
 });
 
 Given('user clicks on the login link', async function () {
-    await page.getByRole('button', { name: 'Login' }).click();
-    await page.waitForSelector("input[placeholder='Search books or authors']",{
+    await pageFixture.page.getByRole('button', { name: 'Login' }).click();
+    await pageFixture.page.waitForSelector("input[placeholder='Search books or authors']",{
       state: "visible"
   });
   });
 
   Given('user enter the username as {string}', async function (username) {
-   await page.fill("input[formcontrolname='username']",username);
+   await pageFixture.page.fill("input[formcontrolname='username']",username);
   });
 
   Given('user enter the password as {string}', async function (password) {
-   await page.fill("input[formcontrolname='password']",password);
+   await pageFixture.page.fill("input[formcontrolname='password']",password);
   });
 
   When('user click on the login button', async function () {
-    await page.locator('mat-card-actions').getByRole('button', { name: 'Login' }).click();
+    await pageFixture.page.locator('mat-card-actions').getByRole('button', { name: 'Login' }).click();
+    await pageFixture.page.waitForLoadState();
+    
+
   });
 
   Then('login should be success',{timeout:20000}, async function () {
-    // Write code here that turns the phrase above into concrete actions
-    await page.waitForTimeout(10000);
+  
+    const username = await pageFixture.page.getByRole('button', { name: 'ortoni' }).textContent();
+    await (expect(username).toContain('ortoni'));
+    
+  });
+
+  Then('login should be fail',{timeout: 100000}, async function () {
+   const errormessage = await pageFixture.page.locator('mat-error[role="alert"]');
+   await (expect(errormessage).toBeVisible());
+   
   });
