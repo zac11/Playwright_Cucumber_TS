@@ -1,5 +1,5 @@
 import { Given, When, Then } from "@cucumber/cucumber";
-import {chromium, Page, Browser} from "@playwright/test";
+import {chromium, Page, Browser, expect} from "@playwright/test";
 
 let browser: Browser;
 let page: Page;
@@ -33,5 +33,13 @@ Given('user clicks on the login link', async function () {
 
   Then('login should be success',{timeout:20000}, async function () {
     // Write code here that turns the phrase above into concrete actions
-    await page.waitForTimeout(10000);
+    const username = await page.getByRole('button', { name: 'ortoni' }).textContent();
+    await (expect(username).toContain('ortoni'));
+    await browser.close();
+  });
+
+  Then('login should be fail',{timeout: 100000}, async function () {
+   const errormessage = await page.locator('mat-error[role="alert"]');
+   await (expect(errormessage).toBeVisible());
+   await browser.close();
   });

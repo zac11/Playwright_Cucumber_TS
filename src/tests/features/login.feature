@@ -11,4 +11,10 @@ Feature: User Authentication tests
         When user click on the login button
         Then login should be success
 
+    Scenario: Login should fail
+        Given user enter the username as "koushik"
+        And user enter the password as "Passkoushik"
+        When user click on the login button
+        Then login should be fail
+
 
