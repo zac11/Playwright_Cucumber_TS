@@ -4,7 +4,8 @@
   "description": "Playwright Cucumber TS Repo course by Letcode",
   "main": "index.js",
   "scripts": {
-    "test": "cucumber-js test"
+    "test": "cucumber-js test",
+    "post-test": "npx ts-node src/helper/report.ts"
   },
   "repository": {
     "type": "git",
@@ -22,6 +23,7 @@
     "ts-node": "^10.9.1"
   },
   "dependencies": {
-    "@cucumber/cucumber": "^9.1.0"
+    "@cucumber/cucumber": "^9.1.0",
+    "multiple-cucumber-html-reporter": "^3.3.0"
   }
 }
