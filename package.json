@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "cucumber-js test",
-    "post-test": "npx ts-node src/helper/report.ts",
-    "final": "npm run test && npm run post-test"
+    "post-test": "npx ts-node src/helper/report.ts"
   },
   "repository": {
     "type": "git",
