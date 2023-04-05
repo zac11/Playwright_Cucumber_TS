@@ -5,7 +5,7 @@ import { pageFixture } from "../../hooks/pageFixture";
 setDefaultTimeout(60*1000*2);
 
 Given('user navigates to the application', async function () {
-  await pageFixture.page.goto("https://bookcart.azurewebsites.net/");
+  await pageFixture.page.goto(process.env.BASEURL);
 });
 
 Given('user clicks on the login link', async function () {
