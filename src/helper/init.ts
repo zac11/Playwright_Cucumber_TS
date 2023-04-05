@@ -1,8 +1,8 @@
 const fs = require("fs-extra");
 
 try {
-    fs.ensureDir('test-results');
-    fs.emptyDir("test-results");
+  fs.ensureDir("test-results");
+  fs.emptyDir("test-results");
 } catch (error) {
-    console.log(`Unable to create folder with error--> ${error}`);
+  console.log(`Unable to create folder with error--> ${error}`);
 }
