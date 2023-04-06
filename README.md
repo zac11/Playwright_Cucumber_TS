@@ -1,3 +1,4 @@
+[![Playwright Tests](https://github.com/zac11/Playwright_Cucumber_TS/actions/workflows/playwright.yml/badge.svg)](https://github.com/zac11/Playwright_Cucumber_TS/actions/workflows/playwright.yml)
 # Playwright_Cucumber_TS
 Playwright Cucumber TS Repo course by Letcode
 

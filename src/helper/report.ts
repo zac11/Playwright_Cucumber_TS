@@ -3,7 +3,7 @@ const report = require("multiple-cucumber-html-reporter");
 report.generate({
   jsonDir: "test-results",
   reportPath: "./",
-  reportName : "Playwright Automation Report",
+  reportName: "Playwright Automation Report",
   pageTitle: "Book Art Automation",
   displayDuration: false,
   metadata: {
@@ -22,7 +22,7 @@ report.generate({
     data: [
       { label: "Project", value: "Playwright Cucumber TS" },
       { label: "Release", value: "1.0.0" },
-      { label: "Cycle", value: "1" }
+      { label: "Cycle", value: "1" },
     ],
   },
 });
