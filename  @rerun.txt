@@ -1,2 +1,0 @@
-src/tests/features/addtoCart.feature:18:19
-src/tests/features/login.feature:8:14
